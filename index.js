@@ -28,17 +28,25 @@ addMovie = (event) => {
 deleteMovie = (event) => {
     event.target.parentNode.remove()
     message.textContent = "Movie Deleted!"
+    revealMessage();
 }
 
 crossOffMovie = (event) => {
-    event.target.classList.toggle('.checked')
-    if (event.target.classList === event.target.classList.contains('.checked')) {
+    event.target.classList.toggle('checked')
+    if (event.target.classList === event.target.classList.contains('checked')) {
             message.textContent = "Movie Watched!"
     } else { message.textContent = "Movie added back!"
 
     }
-
+    revealMessage();
 }
+
+revealMessage = () => {
+    message.classList.remove('hide');
+    setTimeout(callback, 1000);
+}
+
+callback = () => {message.classList.add('hide')}
 
 //Step 3: Combine The Two Using addEventListener
 movieList.addEventListener('submit', addMovie)
