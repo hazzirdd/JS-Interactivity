@@ -27,15 +27,15 @@ addMovie = (event) => {
 
 deleteMovie = (event) => {
     event.target.parentNode.remove()
-    message.textContent = "Movie Deleted!"
+    message.textContent = `${event.target.previousElementSibling.textContent} Deleted!`
     revealMessage();
 }
 
 crossOffMovie = (event) => {
     event.target.classList.toggle('checked')
-    if (event.target.classList === event.target.classList.contains('checked')) {
-            message.textContent = "Movie Watched!"
-    } else { message.textContent = "Movie added back!"
+    if (event.target.classList.contains('checked') === true) {
+            message.textContent = `${event.target.textContent} marked as watched`
+    } else { message.textContent = `${event.target.textContent} marked unwatched`
 
     }
     revealMessage();
